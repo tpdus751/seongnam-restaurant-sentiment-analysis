@@ -1,3 +1,4 @@
+
 # 📊 성남시 음식점 리뷰 감성 분석 시스템
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-Deployed-brightgreen?logo=streamlit)](https://share.streamlit.io/your-deployment-link)
@@ -45,79 +46,102 @@
 ---
 
 ## 🧠 감성 분석 모델 비교
-모델명	아키텍처	주요 특징
-🔵 LSTM	RNN 기반 (시퀀스 처리)	- Okt 형태소 분석기 사용
-- 임베딩 → BiLSTM → Dense
-- 시계열 데이터 처리에 강점
-🟣 KcELECTRA	Transformer 기반 (Pre-trained)	- beomi/KcELECTRA-base 기반
-- 한국어 뉴스/위키 기반 사전학습
-- 문맥 이해 및 분류에 강점
 
-현재 앱에서는 KcELECTRA 기반 모델을 기본으로 사용합니다.
+| 모델명       | 아키텍처                    | 주요 특징 |
+|--------------|-----------------------------|------------|
+| 🔵 **LSTM**  | RNN 기반 (시퀀스 처리)       | - Okt 형태소 분석기 사용<br>- 임베딩 → BiLSTM → Dense<br>- 시계열 데이터 처리에 강점 |
+| 🟣 **KcELECTRA** | Transformer 기반 (Pre-trained) | - `beomi/KcELECTRA-base` 기반<br>- 한국어 뉴스/위키 기반 사전학습<br>- 문맥 이해 및 분류에 강점 |
 
-### 📌 코드/리포트 비교
-주요 코드	리포트
-![](images/kc electra 주요코드.png)	![](images/kc electra 리포트.png)
-![](images/lstm 주요 코드.png)	![](images/lstm 리포트.png)
+> 현재 앱에서는 **KcELECTRA 기반 모델**을 기본으로 사용합니다.
+
+---
+
+## 📌 코드/리포트 비교
+
+| 주요 코드 | 리포트 |
+|-----------|--------|
+| ![](images/kc electra 주요코드.png) | ![](images/kc electra 리포트.png) |
+| ![](images/lstm 주요 코드.png)       | ![](images/lstm 리포트.png)       |
 
 ---
 
 ## 🌐 실행 방법
 
 ### ✅ 1. 로컬 실행
+
+```bash
 pip install -r requirements.txt
 streamlit run App.py
+```
 
 ### ✅ 2. Streamlit Cloud 배포
-packages.txt에 다음 내용 포함
 
+`packages.txt`에 다음 내용 포함:
 
+```
 default-jre
-.streamlit/secrets.toml 설정
+```
 
+`.streamlit/secrets.toml`에는 OpenAI API 키를 포함:
 
+```toml
 [openai]
 api_key = "sk-xxx..."
+```
 
-
+---
 
 ## 📦 배포 환경 (Streamlit Cloud)
-Konlpy 사용을 위해 packages.txt에 Java 런타임을 포함해야 합니다.
 
+Konlpy 사용을 위해 `packages.txt`에 Java 런타임을 포함해야 합니다.
 
 ### packages.txt
-default-jre
-그리고 .streamlit/secrets.toml에는 OpenAI API 키를 포함시켜야 합니다.
 
+```
+default-jre
+```
+
+그리고 `.streamlit/secrets.toml`에는 OpenAI API 키를 포함시켜야 합니다.
 
 ### secrets.toml
+
+```
 OPENAI_API_KEY = "sk-..."
+```
+
+---
 
 ## 🧹 사용 기술
-분야	기술 스택
-웹 UI	Streamlit, Matplotlib, WordCloud
-자연어처리	KoNLPy (Okt), Transformers (KcELECTRA), TensorFlow (LSTM)
-크롤링	Selenium, BeautifulSoup
-모델 배포	Git LFS (또는 별도 모델 다운로드 경로 제공)
-요약	OpenAI GPT API 활용 요약 기능
+
+| 분야       | 기술 스택 |
+|------------|-------------------------------|
+| 웹 UI      | Streamlit, Matplotlib, WordCloud |
+| 자연어처리 | KoNLPy (Okt), Transformers (KcELECTRA), TensorFlow (LSTM) |
+| 크롤링     | Selenium, BeautifulSoup |
+| 모델 배포  | Git LFS (또는 별도 모델 다운로드 경로 제공) |
+| 요약       | OpenAI GPT API 활용 요약 기능 |
+
+---
 
 ## 📈 결과 예시
-감정 비율 파이차트
 
-긍정/부정 리뷰 요약
+- 감정 비율 파이차트
+- 긍정/부정 리뷰 요약
+- 감정별 워드클라우드
 
-감정별 워드클라우드
+---
 
 ## 📚 참고 자료
-HuggingFace KcELECTRA 모델: https://huggingface.co/beomi/KcELECTRA-base
 
-OpenAI GPT-4 API: https://platform.openai.com/
+- HuggingFace KcELECTRA 모델: https://huggingface.co/beomi/KcELECTRA-base
+- OpenAI GPT-4 API: https://platform.openai.com/
+- Streamlit 배포 가이드: https://docs.streamlit.io/
 
-Streamlit 배포 가이드: https://docs.streamlit.io/
+---
 
 ## 🙋‍♀️ 만든 사람
-박세연
-한국폴리텍 성남캠퍼스
-인공지능소프트웨어과 2학년
-Backend & NLP Engineer
-GitHub: tpdus751
+
+- 박세연  
+- 한국폴리텍 성남캠퍼스 인공지능소프트웨어과 2학년  
+- Backend & NLP Engineer  
+- GitHub: [tpdus751](https://github.com/tpdus751)

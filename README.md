@@ -45,9 +45,14 @@
 ---
 
 ## 🧠 감성 분석 모델 비교
-모델	설명
-🔵 LSTM	Okt 형태소 분석 + 시퀀스 기반
-🟣 KcELECTRA	한국어 특화 Transformer (beomi/KcELECTRA-base) 기반
+
+모델명	아키텍처	주요 특징
+🔵 LSTM	RNN 기반 (시퀀스 처리)	- Okt 형태소 분석기 사용
+- 임베딩 → BiLSTM → Dense
+- 시계열 데이터에 강점
+🟣 KcELECTRA	Transformer 기반 (Pre-trained)	- beomi/KcELECTRA-base 사용
+- 한국어 뉴스/위키 기반 사전학습
+- 문맥 이해와 분류에 강점
 
 현재 앱에서는 KcELECTRA 기반 모델을 기본 사용합니다.
 

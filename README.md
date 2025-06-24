@@ -72,7 +72,7 @@ streamlit run App.py
 
 앱이 브라우저에서 자동으로 실행됩니다 (localhost:8501)
 
-📦 배포 환경 (Streamlit Cloud)
+## 📦 배포 환경 (Streamlit Cloud)
 Konlpy 사용을 위해 packages.txt에 Java 런타임을 포함해야 합니다.
 
 
@@ -83,7 +83,8 @@ default-jre
 
 # secrets.toml
 OPENAI_API_KEY = "sk-..."
-🧹 사용 기술
+
+## 🧹 사용 기술
 분야	기술 스택
 웹 UI	Streamlit, Matplotlib, WordCloud
 자연어처리	KoNLPy (Okt), Transformers (KcELECTRA), TensorFlow (LSTM)
@@ -91,29 +92,21 @@ OPENAI_API_KEY = "sk-..."
 모델 배포	Git LFS (또는 별도 모델 다운로드 경로 제공)
 요약	OpenAI GPT API 활용 요약 기능
 
-📈 결과 예시
+## 📈 결과 예시
 감정 비율 파이차트
 
 긍정/부정 리뷰 요약
 
 감정별 워드클라우드
 
-<p align="center"> <img src="https://your-image-link.com/piechart.png" width="400"/> <img src="https://your-image-link.com/wordcloud.png" width="400"/> </p>
-🤖 시연 영상 / 링크
-🟢 앱 배포 링크
-
-📺 시연 영상 보기
-
-📎 프로젝트 발표용 Tech Report
-
-📚 참고 자료
+## 📚 참고 자료
 HuggingFace KcELECTRA 모델: https://huggingface.co/beomi/KcELECTRA-base
 
 OpenAI GPT-4 API: https://platform.openai.com/
 
 Streamlit 배포 가이드: https://docs.streamlit.io/
 
-🙋‍♀️ 만든 사람
+## 🙋‍♀️ 만든 사람
 박세연
 한국폴리텍 성남캠퍼스
 인공지능소프트웨어과 2학년

@@ -1,99 +1,123 @@
-# 📊 성남시 음식점 리뷰 감성 분석 앱
+# 📊 성남시 음식점 리뷰 감성 분석 시스템
 
-성남시 음식점의 네이버 리뷰를 기반으로, **KcELECTRA 감성 분석 모델**을 활용하여 리뷰를 긍정/중립/부정으로 분류하고, GPT-4o를 통해 **리뷰 요약**까지 제공하는 웹 애플리케이션입니다.
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Deployed-brightgreen?logo=streamlit)](https://share.streamlit.io/your-deployment-link)
 
-<p align="center">
-  <img src="https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.svg" height="32"/>
-</p>
+> 네이버 지도에서 수집한 음식점 리뷰를 기반으로 감성 분석을 수행하고 시각적으로 분석 결과를 보여주는 Streamlit 기반 웹 애플리케이션입니다.
+
+---
+
+## 🧠 주요 기능
+
+- ✅ **리뷰 기반 감성 분석** (긍정 / 중립 / 부정)
+- ✅ **감정 비율 파이차트 시각화**
+- ✅ **GPT-4 기반 장점/개선점 요약**
+- ✅ **감정별 워드클라우드 생성**
+- ✅ **개별 리뷰 실시간 감성 분석**
+- ✅ **자동완성 검색 UI (음식점명 입력 시 유사 항목 제시)**
 
 ---
 
 ## 📁 프로젝트 구조
 
+📦seongnam-restaurant-sentiment-analysis
+┣ 📂kc_electra_sentiment_model_0624_3
+┃ ┣ config.json
+┃ ┣ pytorch_model.bin
+┃ ┣ tokenizer.json
+┣ 📂.streamlit
+┃ ┣ config.toml
+┃ ┗ secrets.toml
+┣ 📜App.py
+┣ 📜ModelLoader.py
+┣ 📜SentimentPredictor.py
+┣ 📜Visualization.py
+┣ 📜TextProcessor.py
+┣ 📜ReviewSummary.py
+┣ 📜restaurant_reviews.csv
+┣ 📜requirements.txt
+┣ 📜packages.txt
+┗ 📜README.md
+
+yaml
+복사
+편집
+
+---
+
+## 🧬 감성 분석 모델
+
+| 모델 | 설명 |
+|------|------|
+| `LSTM` | 형태소 분석 후 시퀀스 입력, Keras 기반 감성 분류 |
+| `KcELECTRA` | HuggingFace `beomi/KcELECTRA-base`, 한국어에 특화된 Transformer 모델 |
+
+현재 앱에서는 정확도가 더 높은 **KcELECTRA 모델**을 사용 중입니다.
+
+---
+
+## 🌐 사용 방법
+
+### 1. 로컬 실행
+
 ```bash
-seongnam-restaurant-sentiment-analysis/
-├── kc_electra_model.zip              # 모델 압축본 (배포 시 GDrive에서 자동 다운로드)
-├── .streamlit/
-│   ├── config.toml                   # Streamlit 설정
-│   └── secrets.toml                  # API 키 보관용
-├── images/                           # 모델 비교용 이미지들
-│   ├── lstm 주요코드.png
-│   ├── lstm 리포트.png
-│   ├── kc electra 주요코드.png
-│   └── kc electra 리포트.png
-├── App.py                            # Streamlit 메인 앱
-├── ModelLoader.py                    # 모델 로드 함수
-├── SentimentPredictor.py            # 감성 분석 함수
-├── ReviewSummary.py                 # GPT 요약 함수
-├── TextProcessor.py                 # 키워드 추출
-├── Visualization.py                 # 파이차트, 워드클라우드 시각화
-├── WordCloudVisualizer.py           # 워드클라우드 그리기
-├── requirements.txt                 # 필요 패키지
-├── packages.txt                     # Java 설치용 (konlpy)
-├── restaurant_reviews.csv           # 수집된 리뷰 데이터셋
-├── malgun.ttf                       # 워드클라우드 한글 폰트
-└── README.md
-🚀 실행 방법
-1. 로컬에서 실행
+# 가상환경 설치 (권장)
+conda create -n senti python=3.9
+conda activate senti
+
+# 라이브러리 설치
+pip install -r requirements.txt
+2. 실행
 bash
 복사
 편집
-# 설치
-pip install -r requirements.txt
-
-# 실행
 streamlit run App.py
-2. Streamlit Community Cloud 배포 시 설정
-packages.txt 에 default-jre 포함 (konlpy용 Java 설치)
+앱이 자동으로 브라우저에서 실행됩니다 (localhost:8501).
 
-.streamlit/secrets.toml에 OpenAI API 키 설정
+📦 배포 환경 (Streamlit Cloud)
+Java 기반 라이브러리(KoNLPy) 사용을 위해 packages.txt 필요:
+
+cpp
+복사
+편집
+default-jre
+.streamlit/secrets.toml에는 OpenAI API 키를 포함해야 합니다:
 
 toml
 복사
 편집
-[openai]
-api_key = "sk-xxxxxxxxxxxxxxxxxxx"
-🧠 감성 분석 모델 비교
-모델	설명
-LSTM	Okt 형태소 분석 후 시퀀스를 입력으로 받아 학습 (Keras 기반)
-KcELECTRA	HuggingFace beomi/KcELECTRA-base 기반, 한국어에 특화된 Transformer
+OPENAI_API_KEY = "sk-..."
+🧹 사용 기술
+분야	기술 스택
+웹 UI	Streamlit, Matplotlib, WordCloud
+자연어처리	KoNLPy (Okt), Transformers (KcELECTRA), TensorFlow (LSTM)
+크롤링	Selenium, BeautifulSoup
+모델 배포	Git LFS 또는 모델 별도 다운로드
+요약	OpenAI GPT API 기반 요약 기능
 
-현재 앱은 성능이 우수한 KcELECTRA 모델을 사용 중입니다.
+📈 결과 예시
+(이미지 예시가 있다면 링크 삽입 또는 생략 가능)
 
-🔬 주요 코드 비교 및 성능 리포트
-LSTM 주요 코드	LSTM 성능 리포트
-![LSTM 코드](images/lstm 주요코드.png)	![LSTM 리포트](images/lstm 리포트.png)
+🤖 시연 / 제출 자료
+🟢 앱 배포 링크
 
-KcELECTRA 주요 코드	KcELECTRA 성능 리포트
-![ELECTRA 코드](images/kc electra 주요코드.png)	![ELECTRA 리포트](images/kc electra 리포트.png)
+📺 시연 영상 보기
 
-✨ 기능 요약
-🔍 음식점 이름 자동완성 검색
+📎 프로젝트 Tech Report 보기
 
-📊 리뷰 감성 분석 (긍정 / 중립 / 부정)
+📚 참고 자료
+HuggingFace KcELECTRA 모델
 
-🧠 GPT-4o 기반 장점/개선점 요약
+OpenAI GPT-4 API
 
-🖼️ 감정별 워드클라우드 생성
+Streamlit 배포 가이드
 
-📝 사용자 입력 리뷰에 대한 감성 예측
+🙋‍♀️ 만든 사람
+박세연
+한국폴리텍 성남캠퍼스
+인공지능소프트웨어과 2학년
+Backend & NLP Engineer
+GitHub: tpdus751
 
-📌 모델 다운로드 자동화
-앱 최초 실행 시, 모델이 없으면 Google Drive에서 kc_electra_model.zip 자동 다운로드 후 압축 해제합니다.
-
-📚 기술 스택
-Python / Streamlit / Pandas / Matplotlib / WordCloud
-
-HuggingFace Transformers (beomi/KcELECTRA-base)
-
-Tensorflow (LSTM)
-
-OpenAI GPT API (요약)
-
-KoNLPy + Okt (형태소 분석)
-
-🙋🏻‍♂️ 만든 사람
-👤 박세연 – 한국폴리텍 성남캠퍼스 인공지능소프트웨어과
-
-📫 GitHub
-
+yaml
+복사
+편집

@@ -19,6 +19,7 @@
 
 ## 📁 프로젝트 구조
 
+```
 📦seongnam-restaurant-sentiment-analysis
 ┣ 📂kc_electra_sentiment_model_0624_3
 ┃ ┣ config.json
@@ -26,17 +27,18 @@
 ┃ ┣ tokenizer.json
 ┣ 📂.streamlit
 ┃ ┣ config.toml
-┃ ┗ secrets.toml
-┣ 📜App.py
-┣ 📜ModelLoader.py
-┣ 📜SentimentPredictor.py
-┣ 📜Visualization.py
-┣ 📜TextProcessor.py
-┣ 📜ReviewSummary.py
-┣ 📜restaurant_reviews.csv
+┃ ┗ secrets.toml (배포용 API 키)
+┣ 📜App.py # Streamlit 메인 앱
+┣ 📜ModelLoader.py # 모델 로드 함수
+┣ 📜SentimentPredictor.py # 감성 분석 수행
+┣ 📜Visualization.py # 파이차트 / 워드클라우드 등 시각화
+┣ 📜TextProcessor.py # 키워드 추출
+┣ 📜ReviewSummary.py # GPT 요약 함수
+┣ 📜restaurant_reviews.csv # 수집된 리뷰 데이터
 ┣ 📜requirements.txt
-┣ 📜packages.txt
+┣ 📜packages.txt # Java 필요 패키지
 ┗ 📜README.md
+```
 
 ---
 
@@ -53,51 +55,63 @@
 
 ## 🌐 사용 방법
 
-### 1. 로컬 실행
+1. **환경 준비 (로컬 실행 시)**
 
 ```
 # 가상환경 설치 (권장)
 conda create -n senti python=3.9
 conda activate senti
 
-# 라이브러리 설치
+# 필수 라이브러리 설치
 pip install -r requirements.txt
-2. 실행
+실행
+
 streamlit run App.py
-앱이 자동으로 브라우저에서 실행됩니다 (localhost:8501).
+웹 페이지 접속
 ```
 
+앱이 브라우저에서 자동으로 실행됩니다 (localhost:8501)
+
 📦 배포 환경 (Streamlit Cloud)
-Java 기반 라이브러리(KoNLPy) 사용을 위해 packages.txt 필요:
+Konlpy 사용을 위해 packages.txt에 Java 런타임을 포함해야 합니다.
 
+
+# packages.txt
 default-jre
-.streamlit/secrets.toml에는 OpenAI API 키를 포함해야 합니다:
+그리고 .streamlit/secrets.toml에는 OpenAI API 키를 포함시켜야 합니다.
 
+
+# secrets.toml
 OPENAI_API_KEY = "sk-..."
 🧹 사용 기술
 분야	기술 스택
 웹 UI	Streamlit, Matplotlib, WordCloud
 자연어처리	KoNLPy (Okt), Transformers (KcELECTRA), TensorFlow (LSTM)
 크롤링	Selenium, BeautifulSoup
-모델 배포	Git LFS 또는 모델 별도 다운로드
-요약	OpenAI GPT API 기반 요약 기능
+모델 배포	Git LFS (또는 별도 모델 다운로드 경로 제공)
+요약	OpenAI GPT API 활용 요약 기능
 
 📈 결과 예시
-(이미지 예시가 있다면 링크 삽입 또는 생략 가능)
+감정 비율 파이차트
 
-🤖 시연 / 제출 자료
+긍정/부정 리뷰 요약
+
+감정별 워드클라우드
+
+<p align="center"> <img src="https://your-image-link.com/piechart.png" width="400"/> <img src="https://your-image-link.com/wordcloud.png" width="400"/> </p>
+🤖 시연 영상 / 링크
 🟢 앱 배포 링크
 
 📺 시연 영상 보기
 
-📎 프로젝트 Tech Report 보기
+📎 프로젝트 발표용 Tech Report
 
 📚 참고 자료
-HuggingFace KcELECTRA 모델
+HuggingFace KcELECTRA 모델: https://huggingface.co/beomi/KcELECTRA-base
 
-OpenAI GPT-4 API
+OpenAI GPT-4 API: https://platform.openai.com/
 
-Streamlit 배포 가이드
+Streamlit 배포 가이드: https://docs.streamlit.io/
 
 🙋‍♀️ 만든 사람
 박세연

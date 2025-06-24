@@ -17,60 +17,65 @@
 
 ---
 
-## 📁 프로젝트 구조
+## 🗂️ 폴더 구조
 
 ```
-📦seongnam-restaurant-sentiment-analysis
-┣ 📂kc_electra_sentiment_model_0624_3
-┃ ┣ config.json
-┃ ┣ pytorch_model.bin
-┃ ┣ tokenizer.json
-┣ 📂.streamlit
-┃ ┣ config.toml
-┃ ┗ secrets.toml (배포용 API 키)
-┣ 📜App.py # Streamlit 메인 앱
-┣ 📜ModelLoader.py # 모델 로드 함수
-┣ 📜SentimentPredictor.py # 감성 분석 수행
-┣ 📜Visualization.py # 파이차트 / 워드클라우드 등 시각화
-┣ 📜TextProcessor.py # 키워드 추출
-┣ 📜ReviewSummary.py # GPT 요약 함수
-┣ 📜restaurant_reviews.csv # 수집된 리뷰 데이터
-┣ 📜requirements.txt
-┣ 📜packages.txt # Java 필요 패키지
-┗ 📜README.md
+.
+├── App.py                        # Streamlit 메인 앱
+├── ModelLoader.py               # 모델 및 토크나이저 로더
+├── SentimentPredictor.py        # 리뷰 감성 예측 모듈
+├── ReviewSummary.py             # GPT-4o 요약 함수
+├── TextProcessor.py             # 키워드 추출 및 형태소 분석기
+├── Visualization.py             # 파이 차트, 텍스트 시각화
+├── WordCloudVisualizer.py       # 워드클라우드 생성기
+├── requirements.txt             # 패키지 목록
+├── packages.txt                 # Streamlit Cloud용 Linux 패키지
+├── restaurant_reviews.csv       # 네이버 음식점 리뷰 데이터셋
+├── malgun.ttf                   # 워드클라우드 한글 폰트
+├── .gitignore
+├── .gitattributes
+├── README.md
+└── images/
+    ├── kc electra 리포트.png
+    ├── kc electra 주요코드.png
+    ├── lstm 리포트.png
+    └── lstm 주요 코드.png
 ```
 
 ---
 
-## 🧬 감성 분석 모델
+## 🧠 감성 분석 모델 비교
+모델	설명
+🔵 LSTM	Okt 형태소 분석 + 시퀀스 기반
+🟣 KcELECTRA	한국어 특화 Transformer (beomi/KcELECTRA-base) 기반
 
-| 모델 | 설명 |
-|------|------|
-| `LSTM` | 형태소 분석 후 시퀀스 입력, Keras 기반 감성 분류 |
-| `KcELECTRA` | HuggingFace `beomi/KcELECTRA-base`, 한국어에 특화된 Transformer 모델 |
+현재 앱에서는 KcELECTRA 기반 모델을 기본 사용합니다.
 
-현재 앱에서는 정확도가 더 높은 **KcELECTRA 모델**을 사용 중입니다.
+### 📌 코드/리포트 비교
+주요 코드	리포트
+![](images/kc electra 주요코드.png)	![](images/kc electra 리포트.png)
+![](images/lstm 주요 코드.png)	![](images/lstm 리포트.png)
 
 ---
 
-## 🌐 사용 방법
+## 🌐 실행 방법
 
-1. **환경 준비 (로컬 실행 시)**
-
-```
-# 가상환경 설치 (권장)
-conda create -n senti python=3.9
-conda activate senti
-
-# 필수 라이브러리 설치
+### ✅ 1. 로컬 실행
 pip install -r requirements.txt
-실행
-
 streamlit run App.py
-웹 페이지 접속
-```
 
-앱이 브라우저에서 자동으로 실행됩니다 (localhost:8501)
+### ✅ 2. Streamlit Cloud 배포
+packages.txt에 다음 내용 포함
+
+
+default-jre
+.streamlit/secrets.toml 설정
+
+
+[openai]
+api_key = "sk-xxx..."
+
+
 
 ## 📦 배포 환경 (Streamlit Cloud)
 Konlpy 사용을 위해 packages.txt에 Java 런타임을 포함해야 합니다.

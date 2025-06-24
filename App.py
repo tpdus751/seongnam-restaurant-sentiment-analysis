@@ -36,7 +36,7 @@ model_path = os.path.join(model_folder, "kc_electra_sentiment_model_0624_3")
 
 # 모델 압축 다운로드 및 추출
 if not os.path.exists(model_path):
-    download_and_extract_model_from_gdrive("1-Ukah1Vovn4hteVBpXUm5ekU1TDP5Mxf", ".", model_folder)
+    download_and_extract_model_from_gdrive("1f99L-Fz-1ldWo2-YRlDv146HbGUTZn0b", ".", model_folder)
 
 # 모델 로더에 경로 전달
 tokenizer, model = load_model(model_path)

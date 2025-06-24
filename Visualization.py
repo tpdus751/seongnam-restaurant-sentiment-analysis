@@ -19,3 +19,8 @@ def plot_pie_chart(df):
     )
     ax.axis('equal')
     st.pyplot(fig)
+
+    
+def display_top_reviews(df, label, top_k=5):
+    subset = df[df['label'] == label].nlargest(top_k, 'confidence')
+    return subset['review'].tolist()

@@ -56,26 +56,23 @@
 
 ---
 
-<h3>📌 코드/리포트 비교</h3>
+### 📌 코드/리포트 비교
 
-<table>
-  <thead>
-    <tr>
-      <th>주요 코드</th>
-      <th>리포트</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="images/kc electra 주요코드.png" width="300"/></td>
-      <td><img src="images/kc electra 리포트.png" width="300"/></td>
-    </tr>
-    <tr>
-      <td><img src="images/lstm 주요 코드.png" width="300"/></td>
-      <td><img src="images/lstm 리포트.png" width="300"/></td>
-    </tr>
-  </tbody>
-</table>
+#### 🔷 KcELECTRA
+
+- 주요 코드  
+  ![](images/kc electra 주요코드.png)
+
+- 리포트  
+  ![](images/kc electra 리포트.png)
+
+#### 🔷 LSTM
+
+- 주요 코드  
+  ![](images/lstm 주요 코드.png)
+
+- 리포트  
+  ![](images/lstm 리포트.png)
 ---
 
 ## 🌐 실행 방법

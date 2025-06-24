@@ -136,11 +136,25 @@ OPENAI_API_KEY = "sk-..."
 
 ---
 
-## 📈 결과 예시
+<h2>📈 결과 예시</h2>
 
-- 감정 비율 파이차트
-- 긍정/부정 리뷰 요약
-- 감정별 워드클라우드
+<table style="border-collapse: separate; border-spacing: 20px 10px;">
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/piechart.png" alt="감정 비율 파이차트" width="250"><br>
+      <strong>감정 비율 파이차트</strong>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/summary.png" alt="긍정/부정 리뷰 요약" width="250"><br>
+      <strong>긍정/부정 리뷰 요약</strong>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/result_wordcloud.png" alt="감정별 워드클라우드" width="250"><br>
+      <strong>감정별 워드클라우드</strong>
+    </td>
+  </tr>
+</table>
+
 
 ---
 

@@ -12,15 +12,16 @@ from ReviewSummary import summarize_reviews
 from Visualization import plot_pie_chart, display_top_reviews
 from TextProcessor import extract_keywords
 from WordCloudVisualizer import plot_wordcloud
+import gdown
 
 def download_and_extract_model_from_gdrive(file_id, dest_path, extract_to):
-    url = f"https://drive.google.com/uc?id={file_id}&export=download"
-    response = requests.get(url)
+    # GDrive URL 포맷 생성
+    url = f"https://drive.google.com/uc?id={file_id}"
+
     zip_path = os.path.join(dest_path, "model.zip")
+    gdown.download(url, zip_path, quiet=False)
 
-    with open(zip_path, "wb") as f:
-        f.write(response.content)
-
+    # 압축 해제
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
 

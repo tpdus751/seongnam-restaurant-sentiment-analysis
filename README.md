@@ -38,10 +38,6 @@
 ┣ 📜packages.txt
 ┗ 📜README.md
 
-yaml
-복사
-편집
-
 ---
 
 ## 🧬 감성 분석 모델
@@ -59,7 +55,6 @@ yaml
 
 ### 1. 로컬 실행
 
-```bash
 # 가상환경 설치 (권장)
 conda create -n senti python=3.9
 conda activate senti
@@ -67,24 +62,15 @@ conda activate senti
 # 라이브러리 설치
 pip install -r requirements.txt
 2. 실행
-bash
-복사
-편집
 streamlit run App.py
 앱이 자동으로 브라우저에서 실행됩니다 (localhost:8501).
 
 📦 배포 환경 (Streamlit Cloud)
 Java 기반 라이브러리(KoNLPy) 사용을 위해 packages.txt 필요:
 
-cpp
-복사
-편집
 default-jre
 .streamlit/secrets.toml에는 OpenAI API 키를 포함해야 합니다:
 
-toml
-복사
-편집
 OPENAI_API_KEY = "sk-..."
 🧹 사용 기술
 분야	기술 스택
@@ -117,7 +103,3 @@ Streamlit 배포 가이드
 인공지능소프트웨어과 2학년
 Backend & NLP Engineer
 GitHub: tpdus751
-
-yaml
-복사
-편집

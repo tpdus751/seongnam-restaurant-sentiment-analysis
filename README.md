@@ -1,7 +1,7 @@
 
 # 📊 성남시 음식점 리뷰 감성 분석 시스템
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-Deployed-brightgreen?logo=streamlit)](https://share.streamlit.io/your-deployment-link)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Deployed-brightgreen?logo=streamlit)]([https://share.streamlit.io/your-deployment-link](https://seongnam-restaurant-sentiment-analysis-rawrwfpffhgojpkvdzu2dx.streamlit.app/)
 
 > 네이버 지도에서 수집한 음식점 리뷰를 기반으로 감성 분석을 수행하고 시각적으로 분석 결과를 보여주는 Streamlit 기반 웹 애플리케이션입니다.
 

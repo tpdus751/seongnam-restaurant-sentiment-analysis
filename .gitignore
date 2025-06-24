@@ -1,0 +1,33 @@
+# ✅ 환경 변수 파일 (API 키 포함 금지)
+.env
+
+# ✅ Python 캐시
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ✅ Jupyter 노트북 체크포인트 (혹시라도)
+.ipynb_checkpoints/
+
+# ✅ VSCode 설정 (선택)
+.vscode/
+
+# ✅ Streamlit 캐시 및 설정
+.streamlit/config.toml
+.streamlit/secrets.toml
+
+# ✅ Mac/Linux/Windows 시스템 파일
+.DS_Store
+Thumbs.db
+
+# ✅ 모델 체크포인트 (선택)
+*.pt
+*.ckpt
+
+# ✅ 로컬 실행 시 다운로드한 파일
+*.csv
+*.xlsx
+downloads/
+
+.streamlit/secrets.toml

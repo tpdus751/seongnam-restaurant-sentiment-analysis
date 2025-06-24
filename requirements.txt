@@ -8,3 +8,4 @@ torch
 openai
 python-dotenv
 requests
+gdown

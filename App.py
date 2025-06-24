@@ -28,12 +28,18 @@ def download_and_extract_model_from_gdrive(file_id, dest_path, extract_to):
     os.remove(zip_path)
 
 # 🚨 처음 실행 시에만 다운로드 (재시작 대비)
+# 압축 풀 경로 (바깥 폴더만 지정)
 model_folder = "kc_electra_sentiment_model_0624_3"
-if not os.path.exists(model_folder):
+
+# 모델 경로는 압축된 내부 중첩 폴더까지 포함해야 함
+model_path = os.path.join(model_folder, "kc_electra_sentiment_model_0624_3")
+
+# 모델 압축 다운로드 및 추출
+if not os.path.exists(model_path):
     download_and_extract_model_from_gdrive("1-Ukah1Vovn4hteVBpXUm5ekU1TDP5Mxf", ".", model_folder)
-    
-# Load model and tokenizer
-tokenizer, model = load_model()
+
+# 모델 로더에 경로 전달
+tokenizer, model = load_model(model_path)
 
 # Load dataset
 try:

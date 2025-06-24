@@ -18,7 +18,7 @@ def download_and_extract_model_from_gdrive(file_id, dest_path, extract_to):
     # GDrive URL 포맷 생성
     url = f"https://drive.google.com/uc?id={file_id}"
 
-    zip_path = os.path.join(dest_path, "kc_electra_model.zip")
+    zip_path = os.path.join(dest_path, "kc_electra_sentiment_model_0624_3.zip")
     gdown.download(url, zip_path, quiet=False)
 
     # 압축 해제

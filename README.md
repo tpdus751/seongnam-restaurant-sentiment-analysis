@@ -76,12 +76,12 @@ streamlit run App.py
 Konlpy 사용을 위해 packages.txt에 Java 런타임을 포함해야 합니다.
 
 
-# packages.txt
+### packages.txt
 default-jre
 그리고 .streamlit/secrets.toml에는 OpenAI API 키를 포함시켜야 합니다.
 
 
-# secrets.toml
+### secrets.toml
 OPENAI_API_KEY = "sk-..."
 
 ## 🧹 사용 기술

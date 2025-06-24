@@ -61,7 +61,7 @@
 #### 🔷 KcELECTRA
 
 - 주요 코드  
-  ![](images/kc electra 주요코드.png)
+  ![설명](images/kc electra 주요코드.png)
 
 - 리포트  
   ![](images/kc electra 리포트.png)

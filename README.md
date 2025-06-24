@@ -141,15 +141,15 @@ OPENAI_API_KEY = "sk-..."
 <table style="border-collapse: separate; border-spacing: 20px 10px;">
   <tr>
     <td style="text-align: center;">
-      <img src="images/piechart.png" alt="감정 비율 파이차트" width="250"><br>
+      <img src="images/piechart.png" alt="감정 비율 파이차트" width="400"><br>
       <strong>감정 비율 파이차트</strong>
     </td>
     <td style="text-align: center;">
-      <img src="images/summary.png" alt="긍정/부정 리뷰 요약" width="250"><br>
+      <img src="images/reviewSummation.png" alt="긍정/부정 리뷰 요약" width="400"><br>
       <strong>긍정/부정 리뷰 요약</strong>
     </td>
     <td style="text-align: center;">
-      <img src="images/result_wordcloud.png" alt="감정별 워드클라우드" width="250"><br>
+      <img src="images/wordcloudImg.png" alt="감정별 워드클라우드" width="400"><br>
       <strong>감정별 워드클라우드</strong>
     </td>
   </tr>

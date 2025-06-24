@@ -55,6 +55,7 @@
 
 ### 1. 로컬 실행
 
+```
 # 가상환경 설치 (권장)
 conda create -n senti python=3.9
 conda activate senti
@@ -64,6 +65,7 @@ pip install -r requirements.txt
 2. 실행
 streamlit run App.py
 앱이 자동으로 브라우저에서 실행됩니다 (localhost:8501).
+```
 
 📦 배포 환경 (Streamlit Cloud)
 Java 기반 라이브러리(KoNLPy) 사용을 위해 packages.txt 필요:

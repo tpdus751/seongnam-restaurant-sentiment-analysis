@@ -1,5 +1,5 @@
 
-# 📊 성남시 음식점 리뷰 감성 분석 시스템
+# 📊 성남시 음식점 리뷰 감성에 따른 분포 시각화 및 감성 분석을 활용한 장점, 개선점 도출 웹 서비스
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-Deployed-brightgreen?logo=streamlit)](https://seongnam-restaurant-sentiment-analysis-rawrwfpffhgojpkvdzu2dx.streamlit.app/)
 

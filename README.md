@@ -8,6 +8,13 @@
 
 ---
 
+## 🔗 참고 리포지토리
+
+- 📁 **전체 프로젝트 레포지토리 목록**: [tpdus751 GitHub Repositories](https://github.com/tpdus751?tab=repositories)
+- 🧠 **감성 분석 모델 학습 코드**: [restaurant_review_sentiment_analysis_model](https://github.com/tpdus751/restaurant_review_sentiment_analysis_model)
+
+---
+
 ## 🧠 주요 기능
 
 - ✅ **리뷰 기반 감성 분석** (긍정 / 중립 / 부정)

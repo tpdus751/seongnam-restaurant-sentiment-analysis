@@ -10,8 +10,8 @@
 
 ## 🔗 참고 리포지토리
 
-- 📁 **전체 프로젝트 레포지토리 목록**: [](https://github.com/tpdus751/naver_map_restaurant_review_crawl_process)
-- 🧠 **감성 분석 모델 학습 코드**: [restaurant_review_sentiment_analysis_model](https://github.com/tpdus751/restaurant_review_sentiment_analysis_model)
+- 📁 **네이버 지도 음식점 리뷰 크롤링 과정 설명**: [naver_map_restaurant_review_crawl_process](https://github.com/tpdus751/naver_map_restaurant_review_crawl_process)
+- 🧠 **감성 분석 모델 학습 설명**: [restaurant_review_sentiment_analysis_model](https://github.com/tpdus751/restaurant_review_sentiment_analysis_model)
 
 ---
 
